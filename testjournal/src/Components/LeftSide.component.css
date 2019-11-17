@@ -1,0 +1,12 @@
+.Left-side-content {
+    width: 18%;
+    height: 800px;
+    padding-left: 30px;
+    padding-top: 30px;
+
+    background-color: #2B2F3E;
+    color: #808080;
+}
+.Left-side-content h1 {
+    color: #FFFFFF;
+}

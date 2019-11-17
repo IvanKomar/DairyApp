@@ -1,0 +1,36 @@
+.Items-container {
+    box-shadow: 5px;
+}
+
+.to-add-item {
+    border-width: 0px;
+    width: 132px;
+    height: 37px;
+    margin-left: 10px;
+
+    background-color: #27CCC0;
+    border-radius: 3px;
+    outline: none;
+    color: white;
+}
+.to-type-item-name {
+    width: 280px;
+    height: 37px;
+    margin-left: 30px;
+    padding-left: 10px;
+
+    border-radius: 3px;
+    outline: none;
+    border-color: inherit;
+}
+
+.to-type-item-name::placeholder {
+    padding-left: 10px;
+}
+
+.Items-container h2 {
+    margin-left: 28px;
+    margin-top: 20px;
+    font-size: 36px;
+    color: #565A69;
+}
