@@ -1,80 +1,54 @@
 import React from 'react'
-import './Item.component.css'
-import ItemActions from '../../../Store/Actions/Item'
-import CommentActions from '../../../Store/Actions/Comment'
 import { connect } from 'react-redux'
+import { createForm } from 'rc-form'
 
+import './CreateItem.component.css'
+import ItemActions from '../../../../Store/Actions/Item'
 
-class CreateItem extends React.Component {
+class CreateItemInput extends React.Component {
   
+  fields = {
+      title: 'title'
+  }
+  get title() {
+      return this.props.form.getFieldsValue().title
+  }
   createItem() {
     const nextId = this.props.items.length + 1
     const item = {
       id: nextId,
-      title: 'vasya eto title',
+      title: this.title,
     }
     this.props.createItem(item)
   }
-  deleteItem() {
-    const item = this.props.items[this.props.items.length - 1]
-    this.props.deleteItem(item && item.id)
-    this.props.deleteComments(item && item.id)
-  }
-  addComment() {
-    const item = this.props.items[this.props.items.length - 1]
-    if (!item) return 
-
-    const nextId = this.props.comments.length + 1
-    const comment = {
-      id: nextId,
-      text: 'LOREM IPSUM TEXT RARARAtitle',
-      itemId: item.id
-    }
-    this.props.createComment(comment)
-  }
-
+  
   render() {
-
+    const propsTitle = this.props.form.getFieldProps('title')
     return (
-      <div className='Items-container'> 
-      <h2>Items</h2>
-       <form onSubmit={this.props.handleSubmit}> 
+       <form className='title-input-form'> 
        <input 
-        className='to-type-item-name' 
+       type='text'
+       value={this.title}
+       {...propsTitle}
+        className='item-name-input' 
         placeholder='Type name here...' 
-        value={this.state.value}  
       /> 
-      <button className='to-add-item' onClick={() => this.createItem()} >Add new item</button>
+      <button className='to-create-item' onClick={() => this.createItem()} >Add new</button>
       </form>
-      <div>
-        {
-          this.props.items.map(item => <p key={item.id}> {item.title} </p>)
-        }   
-      </div>
-      <div>
-        {
-          this.props.comments.map(comment => <p key={comment.id}> {comment.itemId} {comment.text} </p>)
-        }   
-      </div>
-      </div>
-       
-     
     )
   }
 }
 
 const mapStateToProps = (state) => ({
   items: state.items,
-  comments: state.comments
 })
 
 const mapDispatchToProps = dispatch => {
   return {
     createItem: item => dispatch(ItemActions.createItem(item)),
-    deleteItem: itemId => dispatch(ItemActions.deleteItem(itemId)),
-    createComment: comment => dispatch(CommentActions.createComment(comment)),
-    deleteComments: itemId => dispatch(CommentActions.deleteComments(itemId)),
   }
 }
+
+const CreateItem = createForm()(CreateItemInput)
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateItem)

@@ -1,0 +1,34 @@
+.title-input-form {
+   display: flex;
+   justify-content: space-between;
+   margin-left: 30px;
+}
+.to-create-item {
+    border-width: 0px;
+    width: 100px;
+    height: 37px;
+    margin-left: 10px;
+    margin-left: 10px;
+
+    background-color: #27CCC0;
+    border-radius: 3px;
+    outline: none;
+    color: white;
+    font-weight: 500;
+}
+.item-name-input {
+    width: 280px;
+    height: 37px;
+    padding-left: 10px;
+
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid #e5e5e5;
+}
+
+.item-name-input::placeholder {
+    color: #9e9c9c;
+}
+
+
+

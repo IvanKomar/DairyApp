@@ -1,8 +1,10 @@
 import React from 'react'
-import './Item.component.css'
-import ItemActions from '../../../Store/Actions/Item'
-import CommentActions from '../../../Store/Actions/Comment'
 import { connect } from 'react-redux'
+
+import ItemActions from '../../../../../Store/Actions/Item'
+import CommentActions from '../../../../../Store/Actions/Comment'
+import './Item.component.css'
+
 
 {/* <Name/>
 <CommentsCounter/>
@@ -10,35 +12,29 @@ import { connect } from 'react-redux'
 
 class Item extends React.Component {
   
-  deleteItem() {
-    const item = this.props.items[this.props.items.length - 1]
+  deleteItem(item) {
     this.props.deleteItem(item && item.id)
     this.props.deleteComments(item && item.id)
   }
-  addComment() {
-    const item = this.props.items[this.props.items.length - 1]
-    if (!item) return 
-
-    const nextId = this.props.comments.length + 1
-    const comment = {
-      id: nextId,
-      text: 'LOREM IPSUM TEXT RARARAtitle',
-      itemId: item.id
-    }
-    this.props.createComment(comment)
-  }
-
+  
   render() {
-        const commentCount = <span> {comments.filter(commment => commment.itemId).length} </span>
-        const deleteButton = <button className='to-delete-item' onClick={() => this.deleteItem()} >Delete Item</button>
+        const commentCount = <span> {0} </span>
+        
     return (
      
-      
-      
-    //   <button className='to-add-item' onClick={() => this.addComment()} >Add comment</button>
-      
-      <div className='item'>
-        {this.props.items.map(item => <p key={item.id}> {item.title} {commentCount} {deleteButton} </p>)}   
+      <div className='items'>
+        {
+          this.props.items.map(item => 
+          <div 
+            className='item'
+            key={item.id}> 
+              <p>
+                {item.title} 
+                {commentCount} 
+              </p>
+              <button className='to-delete-item' onClick={()=>this.deleteItem(item)}>Delete</button>
+          </div>)
+        }   
       </div>
     //   <div>
     //     {this.props.comments.map(comment => <p key={comment.id}> {comment.itemId} {comment.text} </p>)}   
