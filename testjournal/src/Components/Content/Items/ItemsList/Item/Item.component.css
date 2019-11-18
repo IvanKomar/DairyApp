@@ -1,5 +1,5 @@
 .items {
-    margin-top: 10px;    
+    /* margin-top: 10px;     */
 }
 
 .item {
@@ -17,6 +17,8 @@
 }
 .item p {
     margin: auto 0;
+    max-width: 280px;
+    word-wrap: break-word;
 }
 .item span {
     display: inline-block;

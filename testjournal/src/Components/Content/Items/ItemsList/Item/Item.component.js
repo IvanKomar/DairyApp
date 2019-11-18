@@ -5,11 +5,6 @@ import ItemActions from '../../../../../Store/Actions/Item'
 import CommentActions from '../../../../../Store/Actions/Comment'
 import './Item.component.css'
 
-
-{/* <Name/>
-<CommentsCounter/>
-<Button/> */}
-
 class Item extends React.Component {
   
   deleteItem(item) {

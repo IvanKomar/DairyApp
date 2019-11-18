@@ -15,35 +15,3 @@ class Home extends React.Component {
 }
 
 export default Home;
-
-
-  {/* 
-        <Menu/>
-        <Content>
-          <Items>
-            <CreateItem/>
-            <ItemsList>
-              <Item>
-                Наполненние Итема 
-                <Name/>
-                <CommentsCounter/>
-                <Button/>
-              </Item>
-            </ItemsList>
-          </Items>
-          <Comments>
-            <CreateComment>
-              Наполнение комментария
-              <Avatar/>
-              <TextArea/>
-            </CreateComment>
-            <CommentsList>
-              <CommentItem>
-                <Avatar/>
-                <Text/>
-              </CommentItem>
-            </CommentsList>
-
-          </Comments>
-        </Content>
-        */}

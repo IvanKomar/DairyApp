@@ -30,5 +30,13 @@
     color: #9e9c9c;
 }
 
+.error-mesage {
+    height: 10px;
+    font-size: 10px;
+    margin-top: 10px;
+
+    color: red;
+    text-align: center;
+}
 
 
