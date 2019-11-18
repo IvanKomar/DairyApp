@@ -1,5 +1,5 @@
-.Left-side-content {
-    width: 18%;
+.menu {
+    width: 290px;
     height: 800px;
     padding-left: 30px;
     padding-top: 30px;
@@ -8,6 +8,6 @@
     color: #808080;
     font-weight: 100;
 }
-.Left-side-content h1 {
+.menu h1 {
     color: #FFFFFF;
 }

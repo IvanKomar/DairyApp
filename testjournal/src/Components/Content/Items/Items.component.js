@@ -1,7 +1,7 @@
 import React from 'react'
 import './Item.component.css'
-import ItemActions from '../Store/Actions/Item'
-import CommentActions from '../Store/Actions/Comment'
+import ItemActions from '../../../Store/Actions/Item'
+import CommentActions from '../../../Store/Actions/Comment'
 import { connect } from 'react-redux'
 
 
