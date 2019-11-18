@@ -6,7 +6,7 @@ import './CreateItem.component.css'
 import ItemActions from '../../../../Store/Actions/Item'
 
 class CreateItemInput extends React.Component {
-  
+   
   fields = {
       title: 'title'
   }
@@ -17,7 +17,7 @@ class CreateItemInput extends React.Component {
     const nextId = this.props.items.length + 1
     const item = {
       id: nextId,
-      title: this.title,
+      title: this.title ,
     }
     this.props.createItem(item)
   }
@@ -27,8 +27,7 @@ class CreateItemInput extends React.Component {
     return (
        <form className='title-input-form'> 
        <input 
-       type='text'
-       value={this.title}
+       value={this.fields.title}
        {...propsTitle}
         className='item-name-input' 
         placeholder='Type name here...' 
