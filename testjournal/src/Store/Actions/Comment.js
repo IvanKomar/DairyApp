@@ -1,6 +1,6 @@
 import { COMMENT_CREATE, COMMENTS_DELETE } from '../types'
 
-export const CommentActions = {
+export default {
   createComment: (comment) => {
     return {
       type: COMMENT_CREATE,
@@ -9,11 +9,11 @@ export const CommentActions = {
       }
     }
   },
-  deleteComments: (ItemId) => {
+  deleteComments: (itemId) => {
     return {
       type: COMMENTS_DELETE,
       payload: {
-        ItemId,
+        itemId,
       }
     }
   },

@@ -5,7 +5,7 @@ export default (items = [], action) => {
     case ITEM_CREATE:
       return items.concat(action.payload.item)
     case ITEM_DELETE:
-      return items.filter((item) => item.id !== action.payload.item.id)
+      return items.filter((item) => item.id !== action.payload.itemId)
     default: {
       return items
     }
