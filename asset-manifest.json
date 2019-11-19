@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/DairyApp/static/css/main.12181124.chunk.css",
+    "main.js": "/DairyApp/static/js/main.9c3edaa0.chunk.js",
+    "main.js.map": "/DairyApp/static/js/main.9c3edaa0.chunk.js.map",
+    "runtime-main.js": "/DairyApp/static/js/runtime-main.bf6e6cee.js",
+    "runtime-main.js.map": "/DairyApp/static/js/runtime-main.bf6e6cee.js.map",
+    "static/css/2.833dd627.chunk.css": "/DairyApp/static/css/2.833dd627.chunk.css",
+    "static/js/2.57a734a3.chunk.js": "/DairyApp/static/js/2.57a734a3.chunk.js",
+    "static/js/2.57a734a3.chunk.js.map": "/DairyApp/static/js/2.57a734a3.chunk.js.map",
+    "index.html": "/DairyApp/index.html",
+    "precache-manifest.5093e48f894dadde5958d79c79f58b3f.js": "/DairyApp/precache-manifest.5093e48f894dadde5958d79c79f58b3f.js",
+    "service-worker.js": "/DairyApp/service-worker.js",
+    "static/css/2.833dd627.chunk.css.map": "/DairyApp/static/css/2.833dd627.chunk.css.map",
+    "static/css/main.12181124.chunk.css.map": "/DairyApp/static/css/main.12181124.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bf6e6cee.js",
+    "static/css/2.833dd627.chunk.css",
+    "static/js/2.57a734a3.chunk.js",
+    "static/css/main.12181124.chunk.css",
+    "static/js/main.9c3edaa0.chunk.js"
+  ]
+}
