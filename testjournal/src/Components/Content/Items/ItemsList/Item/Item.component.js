@@ -14,7 +14,6 @@ class Item extends React.Component {
   }
   
   get itemClasses() {
-    console.log(this.props.selectedItem)
     const id = this.props.data.id
     return `item ${ id === this.props.selectedItem ? 'selected' : ''}` 
   }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import CreateComment from './CreateComment/CreateComment.component'
+import CommentList from './CommentsList/CommentList.component'
 import './Comments.component.css'
 
 class Comments extends React.Component {
@@ -9,10 +10,10 @@ class Comments extends React.Component {
  
     return (
       <div className='comments-container'>
-     
-        {
+        <CommentList/>
+        {/* {
           this.props.comments.map(comment => <p key={comment.id}> {comment.itemId} {comment.text} </p>)
-        } 
+        }  */}
          <CreateComment/>
       </div>
     )

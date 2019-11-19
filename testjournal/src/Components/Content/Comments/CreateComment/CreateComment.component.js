@@ -22,7 +22,7 @@ class CreateCommentInput extends React.Component {
     const nextId = this.props.comments.length + 1
     const comment = {
       id: nextId,
-      itemId: item.id,
+      itemId: item,
       text: this.state.value,
     }
     this.props.createComment(comment)

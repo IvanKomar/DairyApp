@@ -13,8 +13,6 @@ class ItemsList extends React.Component {
           this.props.items.map(item =>  <Item key={item.id} data={item} />  
           )
         }   
-  
-       
       </div>
     );
   }
