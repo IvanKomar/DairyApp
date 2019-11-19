@@ -11,6 +11,7 @@ class Item extends React.Component {
   deleteItem(item) {
     this.props.deleteItem(item && item.id)
     this.props.deleteComments(item && item.id)
+    this.props.selectItem(item.id = null)
   }
   
   get itemClasses() {
@@ -46,7 +47,7 @@ class Item extends React.Component {
 const mapStateToProps = (state) => ({
   items: state.items,
   comments: state.comments,
-  selectedItem: state.selectedItem
+  selectedItem: state.selectedItem,
 })
 
 const mapDispatchToProps = dispatch => {

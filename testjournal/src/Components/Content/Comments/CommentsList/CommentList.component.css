@@ -1,8 +1,9 @@
 .comments-list {
     overflow: auto;
     height: 440px;
+    margin-bottom: 15px;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     display: absolute;
-}
+} */

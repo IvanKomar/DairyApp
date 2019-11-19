@@ -5,7 +5,7 @@
 }
 .to-create-item {
     border-width: 0px;
-    width: 100px;
+    width: 132px;
     height: 37px;
     margin-left: 10px;
     margin-left: 10px;
@@ -17,7 +17,7 @@
     font-weight: 500;
 }
 .item-name-input {
-    width: 280px;
+    width: 290px;
     height: 37px;
     padding-left: 10px;
 
@@ -30,13 +30,5 @@
     color: #9e9c9c;
 }
 
-.error-mesage {
-    height: 10px;
-    font-size: 10px;
-    margin-top: 10px;
-
-    color: red;
-    text-align: center;
-}
 
 

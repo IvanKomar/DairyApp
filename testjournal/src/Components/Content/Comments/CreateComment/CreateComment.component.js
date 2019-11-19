@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import CommentActions from '../../../../Store/Actions/Comment'
 import SelectedItemActions from '../../../../Store/Actions/SelectedItem'
 import './CreateComment.component.css'
+
 class CreateCommentInput extends React.Component {
 
   constructor(props) {

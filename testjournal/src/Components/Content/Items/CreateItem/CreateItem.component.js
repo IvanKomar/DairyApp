@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import IdGenerator from '../../../../RandomId/RandomId'
 import './CreateItem.component.css'
 import ItemActions from '../../../../Store/Actions/Item'
 class CreateItemInput extends React.Component {
@@ -12,9 +13,8 @@ class CreateItemInput extends React.Component {
 
   createItem() {
     if (!this.state.value) return
-    const nextId = this.props.items.length + 1
     const item = {
-      id: nextId,
+      id: this.props.nextItemId,
       title: this.state.value,
     }
     this.props.createItem(item)
@@ -49,6 +49,7 @@ class CreateItemInput extends React.Component {
 
 const mapStateToProps = (state) => ({
   items: state.items,
+  nextItemId: IdGenerator.getRandomId(),
 })
 
 const mapDispatchToProps = dispatch => {

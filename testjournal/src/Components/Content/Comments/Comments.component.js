@@ -10,7 +10,12 @@ class Comments extends React.Component {
  
     return (
       <div className='comments-container'>
-       <h2 className='comments-header'>Comments #{this.props.selectedItem}</h2>
+        {
+          this.props.items.length === 0
+          ? <h2 className='comments-header'>Add your first item</h2>
+          : <h2 className='comments-header'>Comments #{ this.props.items.findIndex( item => item.id === this.props.selectedItem) + 1}</h2>  
+        }
+      
         <CommentList/>
         <CreateComment/>
       </div>
@@ -19,6 +24,7 @@ class Comments extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+  items: state.items,
   selectedItem: state.selectedItem
 })
 
