@@ -1,68 +1,70 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { createForm } from 'rc-form'
 
 import CommentActions from '../../../../Store/Actions/Comment'
+import SelectedItemActions from '../../../../Store/Actions/SelectedItem'
 
 class CreateCommentInput extends React.Component {
 
-  // get ItemIdFromQuery() {
-  //   const params = queryString.parse(this.props.location.search)
-  //   return parseInt(params.item)
-  // }
-  // state = {
-  //   selectedItem: this.ItemIdFromQuery || this.props.item[0].id 
-  // }
+  constructor(props) {
+    super(props)
+    this.state = {value: ''}
+  }
 
-  fields = {
-    text: 'text'
+  get event() {
+    return 'keydown'
   }
-  get text() {
-    return this.props.form.getFieldsValue().text
-  }
+
   addComment() {
-    // if (window.event.keyCode == 13 && window.event.ctrlKey)
-    //  {
-      const item = this.props.items[this.props.items.length - 1]
-      if (!item) return 
-      const nextId = this.props.comments.length + 1
-      const comment = {
-        id: nextId,
-        itemId: item.id,
-        text: 'comment for ' + this.props.items[nextId-1].title,
-      }
-      this.props.createComment(comment)
-
-    // }
+    if (!this.state.value) return
+    const item = this.props.selectedItem
+    if (!item) return 
+    const nextId = this.props.comments.length + 1
+    const comment = {
+      id: nextId,
+      itemId: item.id,
+      text: this.state.value,
+    }
+    this.props.createComment(comment)
+    this.setState({value: ''})
   }
+
+  keydownHandler = (e) => {
+    if(e.keyCode===13 && e.ctrlKey) this.addComment()
+  }
+
+  componentDidMount(){
+    document.addEventListener(this.event, this.keydownHandler)
+  }
+
+  componentWillUnmount(){
+    document.removeEventListener(this.event, this.keydownHandler)
+  }
+
   render() {
 
-    const propsText = this.props.form.getFieldProps('text')
-
-    return (
-      <form onSubmit={() => this.addComment()} >
-        <div className='avatar'>avatar</div>
-        <textarea 
-          {...propsText}
-        >
-        </textarea>
-        <button onClick={() => this.addComment()}>+</button>
-      </form>
-    )
+    return <form onSubmit={e => e.preventDefault()} >
+      <div className='avatar'>avatar</div>
+      <textarea 
+        value={this.state.value} 
+        onChange={e => this.setState({value: e.target.value})}
+      >
+      </textarea>
+    </form>
   }
 }
 
 const mapStateToProps = (state) => ({
   items: state.items,
-  comments: state.comments
+  comments: state.comments,
+  selectedItem: state.selectedItem
 })
 
 const mapDispatchToProps = dispatch => {
   return {
     createComment: comment => dispatch(CommentActions.createComment(comment)),
+    selectItem: itemId => dispatch(SelectedItemActions.selectItem(itemId)),
   }
 }
 
-const CreateComment = createForm()(CreateCommentInput)
-
-export default connect(mapStateToProps, mapDispatchToProps)(CreateComment)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateCommentInput)

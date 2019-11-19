@@ -1,7 +1,7 @@
 import React from 'react'
 
 import CreateItem from './CreateItem/CreateItem.component'
-import ItemsList from './ItemsList/ItemsList.Component'
+import ItemsList from './ItemsList/ItemsList.component'
 import './Items.component.css'
 
 class Items extends React.Component {

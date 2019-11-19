@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 
 import ItemActions from '../../../../../Store/Actions/Item'
 import CommentActions from '../../../../../Store/Actions/Comment'
-import './Item.component.css'
+import SelectedItemActions from '../../../../../Store/Actions/SelectedItem'
 
+import './Item.component.css'
 class Item extends React.Component {
   
   deleteItem(item) {
@@ -12,37 +13,37 @@ class Item extends React.Component {
     this.props.deleteComments(item && item.id)
   }
   
+  get itemClasses() {
+    console.log(this.props.selectedItem)
+    const id = this.props.data.id
+    return `item ${ id === this.props.selectedItem ? 'selected' : ''}` 
+  }
+
   render() {
-        const commentCount = <span> {0} </span>
+    const commentCount = <span> {0} </span>
+    const item = this.props.data
         
     return (
      
-      <div className='items'>
-        {
-          this.props.items.map(item => 
-          <div 
-            className='item'
-            key={`${item.id}${item.title}`}> 
-              <p>
-                {item.title} 
-                {commentCount} 
-              </p>
-              <button className='to-delete-item' onClick={()=>this.deleteItem(item)}>Delete</button>
-          </div>)
-        }   
+      <div 
+        className={this.itemClasses}
+        key={`${item.id}${item.title}`}
+        onClick={() => this.props.selectItem(item.id)}
+      > 
+        <p>
+          {item.title} 
+          {commentCount} 
+        </p>
+        <button className='to-delete-item' onClick={()=>this.deleteItem(item)}>Delete</button>
       </div>
-    //   <div>
-    //     {this.props.comments.map(comment => <p key={comment.id}> {comment.itemId} {comment.text} </p>)}   
-    //   </div>
-       
-     
+
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  items: state.items,
-  comments: state.comments
+  comments: state.comments,
+  selectedItem: state.selectedItem
 })
 
 const mapDispatchToProps = dispatch => {
@@ -51,6 +52,7 @@ const mapDispatchToProps = dispatch => {
     deleteItem: itemId => dispatch(ItemActions.deleteItem(itemId)),
     createComment: comment => dispatch(CommentActions.createComment(comment)),
     deleteComments: itemId => dispatch(CommentActions.deleteComments(itemId)),
+    selectItem: itemId => dispatch(SelectedItemActions.selectItem(itemId)),
   }
 }
 

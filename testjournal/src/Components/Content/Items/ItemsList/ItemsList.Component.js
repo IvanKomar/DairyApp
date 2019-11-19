@@ -1,16 +1,27 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import Item from './Item/Item.component'
+import './ItemsList.component.css'
 
 class ItemsList extends React.Component {
   
   render() {
     return (
-      <div className="items-list">
-        <Item/>  
+      <div className="items">
+        {
+          this.props.items.map(item =>  <Item key={item.id} data={item} />  
+          )
+        }   
+  
+       
       </div>
     );
   }
 }
 
-export default ItemsList;
+const mapStateToProps = (state) => ({
+  items: state.items,
+})
+
+export default connect(mapStateToProps, {})(ItemsList)
