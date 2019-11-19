@@ -1,5 +1,9 @@
 .Content {
     padding: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
 
     background-color: #f9f9f9;
 }

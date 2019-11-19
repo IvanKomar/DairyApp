@@ -22,7 +22,7 @@ class Item extends React.Component {
           this.props.items.map(item => 
           <div 
             className='item'
-            key={item.id}> 
+            key={`${item.id}${item.title}`}> 
               <p>
                 {item.title} 
                 {commentCount} 

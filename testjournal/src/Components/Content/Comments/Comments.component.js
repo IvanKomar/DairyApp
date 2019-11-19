@@ -1,14 +1,27 @@
 import React from 'react'
-
+import { connect } from 'react-redux'
+import CreateComment from './CreateComment/CreateComment.component'
+import './Comments.component.css'
 
 class Comments extends React.Component {
+
   render() {
+ 
     return (
-      <div>
-      Comments must be here    
+      <div className='comments-container'>
+     
+        {
+          this.props.comments.map(comment => <p key={comment.id}> {comment.itemId} {comment.text} </p>)
+        } 
+         <CreateComment/>
       </div>
     )
   }
 }
 
-export default Comments
+const mapStateToProps = (state) => ({
+  items: state.items,
+  comments: state.comments
+})
+
+export default connect(mapStateToProps)(Comments)

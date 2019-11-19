@@ -1,7 +1,3 @@
-.items {
-    /* margin-top: 10px;     */
-}
-
 .item {
     border-bottom: 1px solid #f2f2f2;
     height: 55px;
@@ -17,7 +13,7 @@
 }
 .item p {
     margin: auto 0;
-    max-width: 280px;
+    max-width: 300px;
     word-wrap: break-word;
 }
 .item span {
