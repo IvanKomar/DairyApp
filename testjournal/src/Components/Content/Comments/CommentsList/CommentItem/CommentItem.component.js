@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import './CommentItem.component.css'
 class CommentItem extends React.Component {
 
   // getRandomColor() {

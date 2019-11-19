@@ -10,19 +10,16 @@ class Comments extends React.Component {
  
     return (
       <div className='comments-container'>
+       <h2 className='comments-header'>Comments #{this.props.selectedItem}</h2>
         <CommentList/>
-        {/* {
-          this.props.comments.map(comment => <p key={comment.id}> {comment.itemId} {comment.text} </p>)
-        }  */}
-         <CreateComment/>
+        <CreateComment/>
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  items: state.items,
-  comments: state.comments
+  selectedItem: state.selectedItem
 })
 
 export default connect(mapStateToProps)(Comments)

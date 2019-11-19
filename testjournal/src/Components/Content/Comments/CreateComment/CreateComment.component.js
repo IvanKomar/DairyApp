@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import CommentActions from '../../../../Store/Actions/Comment'
 import SelectedItemActions from '../../../../Store/Actions/SelectedItem'
-
+import './CreateComment.component.css'
 class CreateCommentInput extends React.Component {
 
   constructor(props) {
@@ -43,9 +43,10 @@ class CreateCommentInput extends React.Component {
 
   render() {
 
-    return <form onSubmit={e => e.preventDefault()} >
-      <div className='avatar'>avatar</div>
+    return <form className='comments-textarea-container' onSubmit={e => e.preventDefault()} >
+      <div className='add-comment-avatar'></div>
       <textarea 
+        className='comments-textarea'
         value={this.state.value} 
         onChange={e => this.setState({value: e.target.value})}
       >

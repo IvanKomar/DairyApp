@@ -19,9 +19,12 @@ class Item extends React.Component {
   }
 
   render() {
-    const commentCount = <span> {0} </span>
+   
     const item = this.props.data
-        
+    const currentItemComments = this.props.comments.filter(comment => comment.itemId === item.id)
+    const commentCount = <span> {
+      currentItemComments.length
+    } </span>
     return (
      
       <div 
@@ -41,6 +44,7 @@ class Item extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+  items: state.items,
   comments: state.comments,
   selectedItem: state.selectedItem
 })
