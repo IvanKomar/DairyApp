@@ -12,8 +12,10 @@ class Comments extends React.Component {
       <div className='comments-container'>
         {
           this.props.items.length === 0
-          ? <h2 className='comments-header'>Add your first item</h2>
-          : <h2 className='comments-header'>Comments #{ this.props.items.findIndex( item => item.id === this.props.selectedItem) + 1}</h2>  
+            ? <h2 className='comments-header'>Add your first item</h2>
+            : !this.props.selectedItem 
+            ? <h2 className='comments-header'>Choose any item</h2>
+            : <h2 className='comments-header'>Comments #{ this.props.items.findIndex( item => item.id === this.props.selectedItem) + 1}</h2>  
         }
       
         <CommentList/>
